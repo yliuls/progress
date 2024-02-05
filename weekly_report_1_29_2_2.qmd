@@ -1,0 +1,33 @@
+---
+title: "Untitled"
+format: pdf
+editor: visual
+---
+
+# Batch effect removal  
+Done:
+
+- 1.Quautile normalization
+
+- 2.Combat 
+
+- 3.Valiadation by PCA
+
+# Deconvolution algrithm
+
+GTM-decon
+
+We get stuck in installing the library of the 'gtm-decon'. 
+
+# Correlation-informated molecular signature
+Done:
+
+- compeleted the expectation and variance of the score function.
+
+- simulation of the score function.
+
+
+
+
+
+

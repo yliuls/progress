@@ -22,9 +22,9 @@ We get stuck in installing the library of the 'gtm-decon'.
 # Correlation-informated molecular signature
 Done:
 
-- compeleted the expectation and variance of the score function.
+- Compeleted the expectation and variance of the score function.
 
-- simulation of the score function.
+- Compeleted the simulation of the score function.
 
 
 

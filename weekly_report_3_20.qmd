@@ -1,0 +1,65 @@
+---
+title: "Deconvolution with covariate"
+author: "Yaofu"
+format: pdf
+editor: visual
+---
+
+
+
+## finish task
+
+1. use the nonlocal prior for the $\beta$ 
+
+2.We want to use non-local prior, we can use the following model: 
+
+$$
+p(\beta_{jk}) = \frac{1}{m^2+s^2} \beta_{jk}^2 \text{Normal}(\beta_{jk} | m, s)
+$$
+
+When we take the log of the $p(\beta_{jk})$, we can get:
+$$
+\ln(p(\beta_{jk})) =  - \ln(\beta_{jk}^2) - \frac{1}{2s^2}(\beta_{jk} - m)^2 +C
+$$
+
+the domain of $\ln(x)$ is $x > 0$, however $\beta_{jk}^2$ have high probability to be 0.
+So I set :
+when $|\beta_{jk}| < \epsilon$,
+$$
+\ln(p(\beta_{jk})) = - \ln(\epsilon) - \frac{1}{2s^2}(\beta_{jk} - m)^2 +C
+$$
+
+when $|\beta_{jk}| > \epsilon$,
+$$
+\ln(p(\beta_{jk})) =  - \ln(\beta_{jk}^2) - \frac{1}{2s^2}(\beta_{jk} - m)^2 +C
+$$
+$$
+\arg\max_{z_j,\beta_j} \, p(\beta_j | y_j, w) =\arg\max_{z_j} -(a+\frac{N}{2}) \ln(b+ \frac{\sum_i^N(y_{ij} - \mu_{ij})^2}{2})  - \sum_k^K \kappa z_{jk} - (\sum_k^K \ln(p(\beta_{jk}))) 
+$$
+
+3. estimate the $z$ and $\beta$ simultaneously
+
+4. evaluation of the model
+
+Data : use the single cell RNA dataset gse165897 data to create the pseudo data. 
+
+The gse165897 data can be divided into two parts, treatment-naïve and post-neoadjuvant chemotherapy. Then I set $x_i = 0$ for treatment-naïve and $x_i = 1$ for post-neoadjuvant chemotherapy. We do the doconvolution based on the model contained $beta$, We can get the $z$ and $\beta$ for the whole data.
+
+Use the $u$ compare the estimated result with the real data to evaluate the model.
+the truth $u_{ijk}$ can be calculated by summing up the sc-seq RNA data of$k$ tpye cells in sample $i$.
+the estimated $u_{ijk} = w_{ik} \cdot( 2^{z_{jk} + \beta_{jk} x_{i}}-1)$.
+
+![estimated u of tumor compartment with non-local prior](EOC_U_Laplace.png)
+![estimated u of tumor compartment with Laplace prior](EOC_U_Laplace.png)
+
+
+# Pending tasks:
+
+Then we can seperately run the convolution on the treatment-naïve and post-neoadjuvant chemotherapy data to get $z_n$ for treatment-naïve and $z_p$ for post-neoadjuvant chemotherapy. 
+
+We can compare the $\beta$ with $z_p - z_n$ to evaluate whether the model can estimate the $beta$ correctly.
+
+
+
+
+

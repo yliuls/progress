@@ -49,17 +49,20 @@ Use the $u$ compare the estimated result with the real data to evaluate the mode
 the truth $u_{ijk}$ can be calculated by summing up the sc-seq RNA data of$k$ tpye cells in sample $i$.
 the estimated $u_{ijk} = w_{ik} \cdot( 2^{z_{jk} + \beta_{jk} x_{i}}-1)$.
 
-![estimated u of tumor compartment with non-local prior](EOC_U_Laplace.png)
+![estimated u of tumor compartment with non-local prior](EOC_U_nonlocal.png)
 ![estimated u of tumor compartment with Laplace prior](EOC_U_Laplace.png)
 
 
 # Pending tasks:
 
-Then we can seperately run the convolution on the treatment-naïve and post-neoadjuvant chemotherapy data to get $z_n$ for treatment-naïve and $z_p$ for post-neoadjuvant chemotherapy. 
+1.fix the the setting of hyperparameter of s0 and d0
+
+2.use NMSE to compare the porformance of the model with different prior
+
+3.use the statistical way to change the hyperparameter of prior.
+
+4.Then we can seperately run the convolution on the treatment-naïve and post-neoadjuvant chemotherapy data to get $z_n$ for treatment-naïve and $z_p$ for post-neoadjuvant chemotherapy. 
 
 We can compare the $\beta$ with $z_p - z_n$ to evaluate whether the model can estimate the $beta$ correctly.
-
-
-
 
 

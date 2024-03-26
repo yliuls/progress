@@ -1,5 +1,5 @@
 day start, 09:30
-break start, 
-break end, 
-day end,
-duration, 
+break start, 13:00
+break end, 13:30
+day end, 20:00
+duration, 10h
